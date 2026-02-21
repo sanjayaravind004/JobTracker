@@ -19,6 +19,15 @@ public class JobTracker {
     private LocalDate interviewDate;
     private String jobLink;
     private String notes;
+    private String messageId;
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
     public int getId() {
         return id;

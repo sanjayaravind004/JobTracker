@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("http://localhost:5174")
 @RestController
 public class JobTrackerController {
     @Autowired
@@ -18,23 +18,23 @@ public class JobTrackerController {
     }
 
     @PostMapping("/job/add")
-    public String addNewJob(@RequestBody JobTracker jobTracker){
+    public JobTracker addNewJob(@RequestBody JobTracker jobTracker){
          jobTrackerService.addNewJob(jobTracker);
-         return "Added Succesfully";
+         return jobTracker;
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/job/update/{id}")
     public JobTracker updateJob(@PathVariable("id") int id , @RequestBody JobTracker jobTracker) {
         jobTracker.setId(id);
         return jobTrackerService.updateJobById(jobTracker);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/job/update")
     public JobTracker updateJobs(@RequestBody JobTracker jobTracker){
         return jobTrackerService.updateJobs(jobTracker);
     }
 
-    @DeleteMapping("/clear/{status}")
+    @DeleteMapping("/job/clear/{status}")
     public String clearByStatus(@PathVariable("status") String status){
         //jobTracker.setStatus(status);
          jobTrackerService.clearByStatus(status);

@@ -44,9 +44,9 @@ public class JobTrackerService {
 
     @Transactional
     public void  clearByStatus(String status) {
-        jobTrackerRepo.deleteByStatus(status);
+        jobTrackerRepo.deleteByStatus(status.trim());
     }
-    @Scheduled(cron = "0 0 0 */10 * *")//0   → second 0   → minute 0   → hour (midnight) */10 → every 10th day *   → every month *   → any weekday
+    @Scheduled(cron = "0 0 0 * * *")//0   → second 0   → minute 0   → hour (midnight) */10 → every 10th day *   → every month *   → any weekday
     public void  clearByStatus() {
         clearByStatus("rejected");
     }
