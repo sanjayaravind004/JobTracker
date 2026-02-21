@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#ignore application properties
+backend/ManualJobTracker/src/main/resources/application.properties
