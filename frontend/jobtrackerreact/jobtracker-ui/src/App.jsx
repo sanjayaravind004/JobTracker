@@ -24,7 +24,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8080/job/all")
+    fetch("https://jobtracker-dk6a.onrender.com/job/all")
       .then(res => res.json())
       .then(data => setJobs(data));
   }, []);
@@ -43,7 +43,7 @@ function App() {
     alert("Please fill all mandatory fields");
   return;
 }
-    fetch("http://localhost:8080/job/add",{
+    fetch("https://jobtracker-dk6a.onrender.com/job/add",{
       method:"POST",
       headers:{ "Content-Type":"application/json"},
       body:JSON.stringify(formData)
@@ -54,7 +54,7 @@ function App() {
   };
 
   const deleteJob = (status) => {
-    fetch(`http://localhost:8080/job/clear/${status}`,{
+    fetch(`https://jobtracker-dk6a.onrender.com/job/clear/${status}`,{
       method:"DELETE"
     }).then(()=> {
       setJobs(jobs.filter(j => j.status !== status));
@@ -62,7 +62,7 @@ function App() {
   };
 
   const updateJob = (job) => {
-    fetch(`http://localhost:8080/job/update/${job.id}`,{
+    fetch(`https://jobtracker-dk6a.onrender.com/job/update/${job.id}`,{
       method:"PUT",
       headers:{ "Content-Type":"application/json"},
       body:JSON.stringify(job)
