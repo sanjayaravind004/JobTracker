@@ -14,7 +14,7 @@ public class EmailScheduler {
     @Autowired
     EmailReaderService emailReaderService;
 
-   // @Scheduled(fixedRate = 600000) //every 10 mins
+    @Scheduled(fixedRate = 600000) //every 10 mins
     public void runEmailReader(){
         emailReaderService.readEmails();
     }
