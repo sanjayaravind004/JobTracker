@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins ={"http://localhost:5173" , 
+		"https://jobtracker-1-bzq6.onrender.com"})
 @RestController
 public class JobTrackerController {
     @Autowired
